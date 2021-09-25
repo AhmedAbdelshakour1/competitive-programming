@@ -36,7 +36,7 @@ int main() {
         if(v.empty()) cout << "0";
         cout << endl;
     }
-    return 0;
+   
 }
  
 /*
