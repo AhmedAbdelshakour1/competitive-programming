@@ -5,7 +5,7 @@
 using namespace std;
 typedef long long ll;
 
-#define endl '\n';
+#define nline '\n';
 #define len(x) (int)(x).size()
 #define all(x) x.begin(), x.end()
 #define rall(x) (x).rbegin(),(x).rend()
@@ -37,21 +37,44 @@ int coins[104];
 int memo[1000001];
 int n, x;
 int solve(int c){
-    if(!c) return 1;
+    if(c == 0)
+        return 0;
     int &ret = memo[c];
-    if(~ret) return ret;
-    ret = 0;
-    for(int i = 0; i < n; i++){
-        if(c >= coins[i]) ret = (ret % MOD + solve(c - coins[i]) % MOD) % MOD;
+    if(~ret)
+        return ret;
+    ret = 1e9;
+    for(int i = 0 ; i < n ; ++i){
+        if(c >= coins[i])ret = min(ret , 1 + solve(c - coins[i]));
     }
     return ret;
 }
+/**
+ * to print the path
+void printSolution(int c){
+    if(c == 0)
+        return;
+    int cur_coin = -1 , best_value = 1e9;
+    for(int i = 0 ; i < n ; ++i){
+        if(c >= coins[i]) {
+            int value = 1 + solve(c - coins[i]);
+            if(value < best_value){
+                cur_coin = coins[i];
+                best_value = value;
+            }
+        }
+    }
+    cout << cur_coin << ' ';
+    printSolution(c - cur_coin);
+}
+**/
 int main() {
      cin >> n >> x;
      for(int i = 0; i < n; i++) cin >> coins[i];
      memset(memo, -1, sizeof memo);
 
-     cout << solve(x);
+    int ans = solve(x);
+    cout << (ans >= 1e9 ? -1 : ans) << "\n";
+    //printSolution(x);
 }
 
 /*
