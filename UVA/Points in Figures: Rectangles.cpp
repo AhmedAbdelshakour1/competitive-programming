@@ -46,7 +46,8 @@ vector<pair<pair<pair<double, double> , pair<double, double>>, int>> v;
 void check(double x, double y, int cnt){
     int f = 0;
     for (int i = 0; i < len(v); ++i) {
-        if(x > v[i].first.first.first && x < v[i].first.second.first && y > v[i].first.second.second && y < v[i].first.first.second) {
+        if(dcomp(x , v[i].first.first.first) == -1 && dcomp(x , v[i].first.second.first) == 1 && dcomp(y , v[i].first.second.second) == -1 &&
+                dcomp(y, v[i].first.first.second) == 1) {
             f = 1;
             cout << "Point " << cnt << " is contained in figure " << v[i].second << nline;
         }
