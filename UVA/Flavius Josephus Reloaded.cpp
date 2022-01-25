@@ -50,7 +50,7 @@ ll pw(ll a, ll p) {
 int main() {
     ll n, a, b;
     while (scanf("%lld %lld %lld", &n, &a, &b) == 3) {
-        map<ll, ll> mp;
+        unordered_map<ll, ll> mp;
         ll curr = 0, cnt = 0;
         mp[curr]++;
         while(1){
