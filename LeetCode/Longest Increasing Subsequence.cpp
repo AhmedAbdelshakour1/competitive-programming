@@ -18,3 +18,20 @@ public:
     return ans;
 }
 };
+// Another solution in O(nlogn)
+class Solution {
+public:
+vector<int> dp;
+int lengthOfLIS(vector<int>& nums) {
+    int n = (int)nums.size();
+    dp.resize(n + 10, 1000000000);
+    for (int i = 0; i < n; i++)
+        *lower_bound(dp.begin(), dp.end(), nums[i]) = nums[i];
+
+    for (int i = 0; i <= n; i++) {
+        if (dp[i] == 1000000000)
+            return i;
+    }
+    return 0;
+}
+};
