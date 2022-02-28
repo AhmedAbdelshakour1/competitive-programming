@@ -61,9 +61,9 @@ public:
                 break;
             }
         }
-        for (int i = x; i < y; ++i) {
-            string l = solve(x, i + 1);
-            string r = solve(i + 1, y);
+        for (int i = x + 1; i < y; ++i) {
+            string l = solve(x, i);
+            string r = solve(i, y);
             if (l != "IMPOSSIBLE!" && r != "IMPOSSIBLE!") {
                 if (ret != "IMPOSSIBLE!" && ret != l + " " + r) return "AMBIGUOUS!";
                 else ret = l + " " + r;
