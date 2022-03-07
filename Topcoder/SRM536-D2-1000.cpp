@@ -60,12 +60,8 @@ public:
 
         for (int i = k; i < n; ++i)
             for (int j = i + (k - 1) - 1, cnt = k; j < n; ++j, ++cnt)
-                dp[j] = max(dp[j], 1.0 * (dp[i - 1] + prefix[j] - prefix[i - 1]) / cnt);
+                dp[j] = max({dp[i], dp[j], 1.0 * (dp[i - 1] + prefix[j] - prefix[i - 1]) / cnt});
 
         return dp[n - 1];
     }
 };
-
-int main() {
-
-}
