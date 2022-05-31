@@ -1,5 +1,6 @@
 // https://vjudge.net/problem/UVA-10139#author=0
 // https://algorithmist.com/wiki/UVa_10139_-_Factovisors
+// https://youtu.be/qHvV6Xjj6e8
 
 #include <bits/stdc++.h>
 
