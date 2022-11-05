@@ -115,6 +115,7 @@ void solve() {
     }
     int ans = bfs();
     cout << (~ans ? ans : -1) << nl;
+
 }
 int main() {
     IO();
