@@ -20,7 +20,7 @@ int main() {
      let p = probability of success , q = 1 - p (failure), Ith = x
      the player might win in his first game -> probability = q^(x - 1) * p
      or in his second game after N loses -> probability = q^(x - 1) * p + q^(x - 1 + n) * p
-     or in his second game after 2N loses -> probability = q^(x - 1) * p + q^(x - 1 + n) * p + q^(x -1 + 2*n) and so on...
+     or in his third game after 2N loses -> probability = q^(x - 1) * p + q^(x - 1 + n) * p + q^(x - 1 + 2*n) and so on...
      keep adding turns till the abs difference is extremely small and doesn't affect the answer
      */
     int t; cin >> t;
