@@ -6,8 +6,8 @@ string addBinary(string a, string b) {
     while(~n || ~m || carry){
         if(n >= 0) carry += a[n--] - '0';
         if(m >= 0) carry += b[m--] - '0';
-        ans += carry % 2 + '0';
-        carry /= 2;
+        ans += (carry & 1) + '0';
+        carry >>= 1;
     }
     reverse(ans.begin(), ans.end());
     return ans;
