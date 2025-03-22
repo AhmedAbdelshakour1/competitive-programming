@@ -51,3 +51,18 @@ int main() {
     }
     cout << ans;
 }
+
+
+// Another solution
+const int N = 20;
+int v[N], n;
+ll ans = OO, sum = 0;
+void solve(int indx, ll sum1){
+    if(indx == n){
+        ll sum2 = sum - sum1;
+        ans = min(ans, abs(sum1 - sum2));
+        return;
+    }
+    solve(indx + 1, sum1);
+    solve(indx + 1, sum1 + v[indx]);
+}
